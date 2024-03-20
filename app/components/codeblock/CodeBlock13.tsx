@@ -11,15 +11,17 @@ const CodeBlock13 = () => {
   return (
     <pre className=' text-[0.8vw]'>
       <code className={`language-typescript`} >
-        {`
-const getAccountBalances = async () => {
+        {`const getNftList = async () => {
+
+  const address = '0x...'; // user's address
+  const chainId = 1; // chain id of the network
+  
   try {
     const nftList = await dataService.getNftsList(address, chainId, '');
   } catch (error) {
-    console.error('Error getting native balance:', error);
+    console.error('Error getting nft list:', error);
   }
-}
-        `}
+}`}
       </code>
     </pre>
   );

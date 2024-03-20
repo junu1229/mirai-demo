@@ -11,15 +11,13 @@ const CodeBlock10 = () => {
   return (
     <pre className=' text-[0.8vw]'>
       <code className={`language-typescript`} >
-        {`
-const getAccountAddress = async () => {
+        {`const getAccountAddress = async () => {
   try {
     const address = await miraiInstance.getCounterFactualAddress();
   } catch (error) {
     console.log('Error getting address:', error);
   }
-}
-        `}
+}`}
       </code>
     </pre>
   );

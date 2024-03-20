@@ -9,10 +9,9 @@ const GetNftList = () => {
   const dataService = new DataService();
   const chainId = 137;
 
-  const getAccountBalances = async () => {
+  const getNftList = async () => {
     try {
       setLoading(true);
-      console.log('address: ', address);
       const nftList = await dataService.getNftsList(address, chainId, '');
       console.log(nftList);
       setLoading(false);
@@ -23,10 +22,10 @@ const GetNftList = () => {
   }
 
   return (
-    <div className={`text-[rgba(255,255,255,0.50)] bg-[#1D1E20] rounded-xl w-[40%] flex flex-col items-center`}>
+    <div className={`text-[rgba(255,255,255,0.50)] bg-[#1D1E20] rounded-xl w-[30%] flex flex-col items-center`}>
       <div className='text-[1.5vw] my-5'>Get Nft List</div>
-      <button onClick={getAccountBalances} disabled={loading} className='bg-[rgba(255,255,255,0.10)] rounded-xl w-[50%] h-10 text-[1.2vw] my-5'>
-        {loading ? 'Loading...' : 'Get Transaction Details'}
+      <button onClick={getNftList} disabled={loading} className='bg-[rgba(255,255,255,0.10)] rounded-xl text-[1.2vw] my-5 p-3'>
+        {loading ? 'Loading...' : 'Get Nft List'}
       </button>
     </div>
   );

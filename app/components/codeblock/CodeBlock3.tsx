@@ -9,15 +9,14 @@ const CodeBlock3 = () => {
   }, []);
 
   return (
-    <pre className=' text-[0.8vw]'>
+    <pre className=' text-[0.7vw]'>
       <code className={`language-typescript`} >
-        {`
-const transferErc721 = async () => {
+        {`const transferErc721 = async () => {
 
   const senderAddress = '0x123...'; // User address
+  const address = '0x123...'; // recipient address
   const contractAddress = '0x123...'; // erc721 contract address
   const tokenId = '1'; // tokenId to transfer
-  const address = '0x123...'; // recipient address
 
   try {
 
@@ -48,8 +47,7 @@ const transferErc721 = async () => {
   } catch (error) {
     console.error('Error transferring erc721:', error);
   }
-};
-        `}
+};`}
       </code>
     </pre>
   );

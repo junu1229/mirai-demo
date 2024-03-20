@@ -9,10 +9,9 @@ const CodeBlock2 = () => {
   }, []);
 
   return (
-    <pre className=' text-[0.8vw]'>
+    <pre className=' text-[0.7vw]'>
       <code className={`language-typescript`} >
-        {`
-const transferNonNativeToken = async () => {
+        {`const transferNonNativeToken = async () => {
 
   const address = '0x123...'; // recipient address
   const amount = '0.01'; // amount to transfer
@@ -48,8 +47,7 @@ const transferNonNativeToken = async () => {
   } catch (error) {
     console.error('Error transferring non-native token:', error);
   }
-};
-        `}
+};`}
       </code>
     </pre>
   );

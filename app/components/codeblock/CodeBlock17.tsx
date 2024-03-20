@@ -11,19 +11,17 @@ const CodeBlock17 = () => {
   return (
     <pre className=' text-[0.8vw]'>
       <code className={`language-typescript`} >
-        {`
-const getAccountBalances = async () => {
+        {`const addToWhitelist = async () => {
+  
+  const address = '0x...'; // user's address
+  const chainId = 1; // chain id of the network
+  
   try {
-    setLoading(true);
-    const balance = await paymaster.adddWhitelist(address, 137);
-    console.log(balance);
-    setLoading(false);
+    const balance = await paymaster.adddWhitelist(address, chainId);
   } catch (error) {
-    setLoading(false);
-    console.error('Error getting native balance:', error);
+    console.error('Error adding to whitelist:', error);
   }
-}
-        `}
+}`}
       </code>
     </pre>
   );

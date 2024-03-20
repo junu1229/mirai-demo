@@ -9,15 +9,14 @@ const CodeBlock4 = () => {
   }, []);
 
   return (
-    <pre className=' text-[0.8vw]'>
+    <pre className=' text-[0.7vw]'>
       <code className={`language-typescript`} >
-        {`
-const transferErc1155 = async () => {
+        {`const transferErc1155 = async () => {
 
   const senderAddress = '0x123...'; // User address
+  const address = '0x123...'; // recipient address
   const contractAddress = '0x123...'; // erc1155 contract address
   const tokenId = '1'; // tokenId to transfer
-  const Address = '0x123...'; // recipient address
   const amount = '1'; // amount to transfer
 
   try {
@@ -49,8 +48,7 @@ const transferErc1155 = async () => {
   } catch (error) {
     console.error('Error transferring erc1155:', error);
   }
-};
-        `}
+};`}
       </code>
     </pre>
   );

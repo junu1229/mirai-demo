@@ -17,8 +17,6 @@ const TransferNativeToken = () => {
         setLoading(false);
         return;
       }
-      console.log("address: ", address);
-      console.log("amount: ", amount);
       // clear the batch
       await miraiInstance.clearUserOpsFromBatch();
       console.log("cleared");
@@ -74,7 +72,7 @@ const TransferNativeToken = () => {
           />
         </div>
       </div>
-      <button onClick={transfer} disabled={loading} className='bg-[rgba(255,255,255,0.10)] rounded-xl w-[50%] text-[1.2vw] my-5'>
+      <button onClick={transfer} disabled={loading} className='bg-[rgba(255,255,255,0.10)] rounded-xl text-[1.2vw] my-5 p-3'>
         {loading ? 'Loading...' : 'Transfer'}
       </button>
     </div>

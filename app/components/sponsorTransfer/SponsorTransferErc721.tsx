@@ -24,9 +24,11 @@ const SponsorTransferErc721 = () => {
   
       // clear any previous transactions in batch
       await miraiInstance.clearUserOpsFromBatch();
+      console.log("cleared");
   
       // add erc721 transferFrom function to the batch
       await erc721.transferFrom(sender, address, tokenId);
+      console.log("added");
   
       // estimate transactions added to the batch and get the fee data for the UserOp
       const op = await miraiInstance.estimate({
@@ -35,6 +37,7 @@ const SponsorTransferErc721 = () => {
           context: { mode: 'sponsor' },
         },
       });
+      console.log("op: ", op);
   
       // sign the UserOp and sending to the bundler...
       const uoHash = await miraiInstance.send(op);
@@ -58,7 +61,7 @@ const SponsorTransferErc721 = () => {
   return (
     <div className='text-[rgba(255,255,255,0.50)] bg-[#1D1E20] rounded-xl w-[30%] flex flex-col justify-center items-center'>
       <h2 className='text-[1.5vw] my-5'>Transfer ERC-721</h2>
-      <div className='gap-6 flex flex-col justify-center items-center text-[1vw] my-5'>
+      <div className='gap-6 flex flex-col justify-center items-center text-[0.9vw] my-5'>
         <div>
           <label>Send To: </label>
           <input 
@@ -87,7 +90,7 @@ const SponsorTransferErc721 = () => {
           />
         </div>
       </div>
-      <button onClick={transfer} disabled={loading} className='bg-[rgba(255,255,255,0.10)] rounded-xl w-[50%] text-[1.2vw] my-5'>
+      <button onClick={transfer} disabled={loading} className='bg-[rgba(255,255,255,0.10)] rounded-xl text-[1.2vw] my-5 p-3'>
         {loading ? 'Loading...' : 'Transfer'}
       </button>
     </div>

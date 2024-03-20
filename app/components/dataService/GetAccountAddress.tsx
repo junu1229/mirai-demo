@@ -12,6 +12,7 @@ const GetAccountAddress = () => {
       setLoading(true);
       if (miraiInstance) {
         const address = await miraiInstance.getCounterFactualAddress();
+        console.log('Address:', address);
         setAddress(address);
       }
       setLoading(false);
@@ -25,7 +26,7 @@ const GetAccountAddress = () => {
     <div className='text-[rgba(255,255,255,0.50)] bg-[#1D1E20] rounded-xl w-[30%] flex flex-col justify-center items-center'>
       <h2 className='text-[1.5vw] my-5'>Get Account Address</h2>
       <div className='text-[0.7vw] my-5'>{address}</div>
-      <button onClick={getAccountAddress} disabled={loading} className='bg-[rgba(255,255,255,0.10)] rounded-xl w-[50%] my-5 text-[1.2vw]'>
+      <button onClick={getAccountAddress} disabled={loading} className='bg-[rgba(255,255,255,0.10)] rounded-xl text-[1.2vw] my-5 p-3'>
         {loading ? 'Loading...' : 'Get Address'}
       </button>
     </div>

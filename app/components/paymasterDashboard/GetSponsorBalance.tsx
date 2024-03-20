@@ -10,7 +10,7 @@ const GetSponsorBalance = () => {
   const chainId = 137;
   const sponsorAddress = '0x8ffDf51EbF23761D762f028A6e1cb88db25A85Bf';
 
-  const getAccountBalances = async () => {
+  const getSponsorBalance = async () => {
     try {
       setLoading(true);
       const balance = await paymaster.getSponsorBalance(sponsorAddress, chainId);
@@ -24,11 +24,11 @@ const GetSponsorBalance = () => {
   }
 
   return (
-    <div className={`text-[rgba(255,255,255,0.50)] bg-[#1D1E20] rounded-xl w-[40%] flex flex-col items-center gap-[5%]`}>
+    <div className={`text-[rgba(255,255,255,0.50)] bg-[#1D1E20] rounded-xl w-[30%] flex flex-col items-center`}>
       <div className='text-[1.5vw] my-5'>Get Sponsor Balance</div>
       <div className='text-[1.5vw] my-5'>Balance: {sponsorBalance}</div>
-      <button onClick={getAccountBalances} disabled={loading} className='bg-[rgba(255,255,255,0.10)] rounded-xl w-[50%] h-10 text-[1.2vw] my-5'>
-        {loading ? 'Loading...' : 'Get Transaction Details'}
+      <button onClick={getSponsorBalance} disabled={loading} className='bg-[rgba(255,255,255,0.10)] rounded-xl text-[1.2vw] my-5 p-3'>
+        {loading ? 'Loading...' : 'Get Sponsor Balance'}
       </button>
     </div>
   );

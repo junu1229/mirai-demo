@@ -22,9 +22,11 @@ const TransferNonNativeToken = () => {
 
       // clear any previous transactions in batch
       await miraiInstance.clearUserOpsFromBatch();
+      console.log("cleared");
 
       // add erc20 transfer function to the batch
       await erc20.transfer(address, utils.parseUnits(amount, parseInt(decimals)));
+      console.log("added");
 
       // estimate transactions added to the batch and get the fee data for the UserOp
       const op = await miraiInstance.estimate();
@@ -90,7 +92,7 @@ const TransferNonNativeToken = () => {
           />
         </div>
       </div>
-      <button onClick={transfer} disabled={loading} className='bg-[rgba(255,255,255,0.10)] rounded-xl w-[50%] my-5 text-[1.2vw]'>
+      <button onClick={transfer} disabled={loading} className='bg-[rgba(255,255,255,0.10)] rounded-xl text-[1.2vw] my-5 p-3'>
         {loading ? 'Loading...' : 'Transfer'}
       </button>
     </div>

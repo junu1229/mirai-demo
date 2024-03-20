@@ -11,15 +11,17 @@ const CodeBlock12 = () => {
   return (
     <pre className=' text-[0.8vw]'>
       <code className={`language-typescript`} >
-        {`
-const getAccountBalances = async () => {
+        {`const getTransactionDetails = async () => {
+
+  const transactionHash = '0x123...'; // transaction hash
+  const chainId = 1; // chain id of the network
+
   try {
     const transactionDetails = await dataService.getTransaction(transactionHash, chainId, '');
   } catch (error) {
-    console.log('Error getting transaction Details', error);
+    console.log('Error getting transaction Details: ', error);
   }
-}
-        `}
+}`}
       </code>
     </pre>
   );

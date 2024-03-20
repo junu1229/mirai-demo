@@ -11,8 +11,7 @@ const CodeBlock1 = () => {
   return (
     <pre className=' text-[0.8vw]'>
       <code className={`language-typescript`} >
-        {`
-const transferNativeToken = async () => {
+        {`const transferNativeToken = async () => {
 
   const address = '0x123...'; // recipient address
   const amount = '0.01'; // amount to transfer
@@ -43,8 +42,7 @@ const transferNativeToken = async () => {
   } catch (error) {
     console.error('Error transferring native token:', error);
   }
-};
-        `}
+};`}
       </code>
     </pre>
   );

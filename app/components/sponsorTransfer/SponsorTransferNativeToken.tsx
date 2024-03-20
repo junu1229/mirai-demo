@@ -58,9 +58,9 @@ const SponsorTransferNativeToken = () => {
   };
 
   return (
-    <div className='text-[rgba(255,255,255,0.50)] bg-[#1D1E20] rounded-xl w-[30%] h-[30%] flex flex-col justify-center items-center gap-[15%]'>
-      <h2 className='text-[1.5vw]'>Transfer Native Token</h2>
-      <div className='gap-[2rem] flex flex-col justify-center items-center text-[1vw]'>
+    <div className='text-[rgba(255,255,255,0.50)] bg-[#1D1E20] rounded-xl w-[30%] flex flex-col justify-center items-center'>
+      <h2 className='text-[1.5vw] my-5'>Transfer Native Token</h2>
+      <div className='gap-6 flex flex-col justify-center items-center text-[1vw] my-5'>
         <div>
           <label>Send To: </label>
           <input 
@@ -80,7 +80,7 @@ const SponsorTransferNativeToken = () => {
           />
         </div>
       </div>
-      <button onClick={transfer} disabled={loading} className='bg-[rgba(255,255,255,0.10)] rounded-xl w-[50%] h-[10%] text-[1.2vw]'>
+      <button onClick={transfer} disabled={loading} className='bg-[rgba(255,255,255,0.10)] rounded-xl text-[1.2vw] my-5 p-3'>
         {loading ? 'Loading...' : 'Transfer'}
       </button>
     </div>

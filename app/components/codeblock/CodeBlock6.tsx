@@ -9,13 +9,13 @@ const CodeBlock6 = () => {
   }, []);
 
   return (
-    <pre className=' text-[0.8vw]'>
+    <pre className=' text-[0.7vw]'>
       <code className={`language-typescript`} >
         {`const sponsorTransferNonNativeToken = async () => {
 
-  const tokenId = '0x123...'; // Non-Native token id
   const address = '0x123...'; // recipient address
   const amount = '0.01'; // amount to transfer
+  const tokenId = '0x123...'; // Non-Native token id
   const tokenDecimals = '18'; // token decimals
 
   try {
