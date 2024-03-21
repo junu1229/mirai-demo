@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css'; 
 
-const CodeBlock2 = () => {
+const TransferErc721CodeBlock = () => {
 
   useEffect(() => {
     hljs.highlightAll();
@@ -11,30 +11,30 @@ const CodeBlock2 = () => {
   return (
     <pre className=' text-[0.7vw]'>
       <code className={`language-typescript`} >
-        {`const transferNonNativeToken = async () => {
+        {`const transferErc721 = async () => {
 
+  const senderAddress = '0x123...'; // User address
   const address = '0x123...'; // recipient address
-  const amount = '0.01'; // amount to transfer
-  const tokenId = '0x123...'; // Non-Native token id
-  const tokenDecimals = '18'; // token decimals
+  const contractAddress = '0x123...'; // erc721 contract address
+  const tokenId = '1'; // tokenId to transfer
 
   try {
 
-    // initialize erc20 sdk instance
-    const erc20 = miraiSDK.erc20(tokenId, NetworkNames.name); 
+    //initialize erc721 sdk instance
+    const erc721 = miraiSDK.erc721(contractAddress, NetworkNames.name);
 
     // clear any previous transactions in batch
     await miraiInstance.clearUserOpsFromBatch();
 
-    // add erc20 transfer function to the batch
-    await erc20.transfer(address, utils.parseUnits(amount, tokenDecimals));
+    // add erc721 transferFrom function to the batch
+    await erc721.transferFrom(senderAddress, address, tokenId);
 
     // estimate transactions added to the batch and get the fee data for the UserOp
     const op = await miraiInstance.estimate();
 
     // sign the UserOp and sending to the bundler...
     const uoHash = await miraiInstance.send(op);
-    
+  
     let userOpsReceipt = null;
     const timeout = Date.now() + 60000 // 1 minute timeout
 
@@ -43,9 +43,9 @@ const CodeBlock2 = () => {
         await sleep(2);
         userOpsReceipt = await miraiInstance.getUserOpReceipt(uoHash);
     }
-    
+
   } catch (error) {
-    console.error('Error transferring non-native token:', error);
+    console.error('Error transferring erc721:', error);
   }
 };`}
       </code>
@@ -53,4 +53,4 @@ const CodeBlock2 = () => {
   );
 };
 
-export default CodeBlock2;
+export default TransferErc721CodeBlock;

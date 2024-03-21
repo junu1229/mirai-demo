@@ -2,32 +2,33 @@ import { useEffect } from 'react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css'; 
 
-const CodeBlock6 = () => {
+const SponsorTransferErc1155CodeBlock = () => {
 
   useEffect(() => {
     hljs.highlightAll();
   }, []);
 
   return (
-    <pre className=' text-[0.7vw]'>
+    <pre className=' text-[0.65vw]'>
       <code className={`language-typescript`} >
-        {`const sponsorTransferNonNativeToken = async () => {
+        {`const transferErc1155 = async () => {
 
+  const senderAddress = '0x123...'; // User address
   const address = '0x123...'; // recipient address
-  const amount = '0.01'; // amount to transfer
-  const tokenId = '0x123...'; // Non-Native token id
-  const tokenDecimals = '18'; // token decimals
+  const contractAddress = '0x123...'; // erc1155 contract address
+  const tokenId = '1'; // tokenId to transfer
+  const amount = '1'; // amount to transfer
 
   try {
 
-    // initialize erc20 sdk instance
-    const erc20 = miraiSDK.erc20(tokenId, NetworkNames.name); 
+    // initialize erc1155 sdk instance
+    const erc1155 = miraiSDK.erc1155(contractAddress, NetworkNames.name);
 
     // clear any previous transactions in batch
     await miraiInstance.clearUserOpsFromBatch();
 
-    // add erc20 transfer function to the batch
-    await erc20.transfer(address, utils.parseUnits(amount, tokenDecimals));
+    // add erc1155 safeTransferFrom function to the batch
+    await erc1155.safeTransferFrom(senderAddress, Address, tokenId, amount, '0x');
 
     // estimate transactions added to the batch and get the fee data for the UserOp
     const op = await miraiInstance.estimate({
@@ -37,12 +38,12 @@ const CodeBlock6 = () => {
       },
     });
 
-    //sign the UserOp and sending to the bundler...
+    // sign the UserOp and sending to the bundler...
     const uoHash = await miraiInstance.send(op);
     
     let userOpsReceipt = null;
     const timeout = Date.now() + 60000 // 1 minute timeout
-
+    
     // wait for getting the transaction receipt
     while (userOpsReceipt == null && Date.now() < timeout) {
         await sleep(2);
@@ -50,7 +51,7 @@ const CodeBlock6 = () => {
     }
     
   } catch (error) {
-    console.error('Error transferring non-native token:', error);
+    console.error('Error transferring erc1155:', error);
   }
 };`}
       </code>
@@ -58,4 +59,4 @@ const CodeBlock6 = () => {
   );
 };
 
-export default CodeBlock6;
+export default SponsorTransferErc1155CodeBlock;

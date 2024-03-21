@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css'; 
 
-const CodeBlock15 = () => {
+const GetAccountAddressCodeBlock = () => {
 
   useEffect(() => {
     hljs.highlightAll();
@@ -11,15 +11,11 @@ const CodeBlock15 = () => {
   return (
     <pre className=' text-[0.8vw]'>
       <code className={`language-typescript`} >
-        {`const depositWhitelist = async () => {
-
-  const amount = 100; // amount to deposit
-  const chainId = 1; // chain id of the network
-
+        {`const getAccountAddress = async () => {
   try {
-    const result = await paymaster.deposit(amount, chainId);
+    const address = await miraiInstance.getCounterFactualAddress();
   } catch (error) {
-    console.error('Error deposit whitelist:', error);
+    console.log('Error getting address:', error);
   }
 }`}
       </code>
@@ -27,4 +23,4 @@ const CodeBlock15 = () => {
   );
 };
 
-export default CodeBlock15;
+export default GetAccountAddressCodeBlock;

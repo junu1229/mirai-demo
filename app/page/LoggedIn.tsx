@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "../components/common/Header";
 import TransferNativeToken from "../components/normalTransfer/TransferNativeToken";
-import CodeBlock1 from "../components/codeblock/CodeBlock1";
+import TransferNativeTokenCodeBlock from "../components/codeblock/TransferNativeTokenCodeBlock";
 import GetNativeBalances from "../components/dataService/GetNativeBalances";
 import GetAccountAddress from "../components/dataService/GetAccountAddress";
 import GetAccountBalances from "../components/dataService/GetAccountBalances";
@@ -18,22 +18,22 @@ import SponsorTransferNativeToken from "../components/sponsorTransfer/SponsorTra
 import SponsorTransferNonNativeToken from "../components/sponsorTransfer/SponsorTransferNonNativeToken";
 import SponsorTransferErc721 from "../components/sponsorTransfer/SponsorTransferErc721";
 import SponsorTransferErc1155 from "../components/sponsorTransfer/SponsorTransferErc1155";
-import CodeBlock2 from "../components/codeblock/CodeBlock2";
-import CodeBlock3 from "../components/codeblock/CodeBlock3";
-import CodeBlock4 from "../components/codeblock/CodeBlock4";
-import CodeBlock5 from "../components/codeblock/CodeBlock5";
-import CodeBlock6 from "../components/codeblock/CodeBlock6";
-import CodeBlock7 from "../components/codeblock/CodeBlock7";
-import CodeBlock8 from "../components/codeblock/CodeBlock8";
-import CodeBlock9 from "../components/codeblock/CodeBlock9";
-import CodeBlock10 from "../components/codeblock/CodeBlock10";
-import CodeBlock11 from "../components/codeblock/CodeBlock11";
-import CodeBlock12 from "../components/codeblock/CodeBlock12";
-import CodeBlock13 from "../components/codeblock/CodeBlock13";
-import CodeBlock14 from "../components/codeblock/CodeBlock14";
-import CodeBlock15 from "../components/codeblock/CodeBlock15";
-import CodeBlock16 from "../components/codeblock/CodeBlock16";
-import CodeBlock17 from "../components/codeblock/CodeBlock17";
+import TransferNonNativeTokenCodeBlock from "../components/codeblock/TransferNonNativeTokenCodeBlock";
+import TransferErc721CodeBlock from "../components/codeblock/TransferErc721CodeBlock";
+import TransferErc1155CodeBlock from "../components/codeblock/TransferErc1155CodeBlock";
+import SponsorTransferNativeTokenCodeBlock from "../components/codeblock/SponsorTransferNativeTokenCodeBlock";
+import SponsorTransferNonNativeTokenCodeBlock from "../components/codeblock/SponsorTransferNonNativeTokenCodeBlock";
+import SponsorTransferErc721CodeBlock from "../components/codeblock/SponsorTransferErc721CodeBlock";
+import SponsorTransferErc1155CodeBlock from "../components/codeblock/SponsorTransferErc1155CodeBlock";
+import GetNativeBalanceCodeBlock from "../components/codeblock/GetNativeBalanceCodeBlock";
+import GetAccountAddressCodeBlock from "../components/codeblock/GetAccountAddressCodeBlock";
+import GetAccountBalancesCodeBlock from "../components/codeblock/GetAccountBalancesCodeBlock";
+import GetTransactionDetailsCodeBlock from "../components/codeblock/GetTransactionDetailsCodeBlock";
+import GetNftListCodeBlock from "../components/codeblock/GetNftListCodeBlock";
+import GetSponsorBalanceCodeBlock from "../components/codeblock/GetSponsorBalanceCodeBlock";
+import DepositWhitelistCodeBlock from "../components/codeblock/DepositWhitelistCodeBlock";
+import CheckWhitelistCodeBlock from "../components/codeblock/CheckWhitelistCodeBlock";
+import AddToWhitelistCodeBlock from "../components/codeblock/AddToWhitelistCodeBlock";
 
 const LoggedIn = () => {
 
@@ -121,71 +121,71 @@ const LoggedIn = () => {
       </div>
       <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 0 ? '' : 'hidden'}`}>
         <TransferNativeToken />
-        <CodeBlock1 />
+        <TransferNativeTokenCodeBlock />
       </div>
       <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 1 ? '' : 'hidden'}`}>
         <TransferNonNativeToken />
-        <CodeBlock2 />
+        <TransferNonNativeTokenCodeBlock />
       </div>
       <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 2 ? '' : 'hidden'}`}>
         <TransferErc721 />
-        <CodeBlock3 />
+        <TransferErc721CodeBlock />
       </div>
       <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 3 ? '' : 'hidden'}`}>
         <TransferErc1155 />
-        <CodeBlock4 />
+        <TransferErc1155CodeBlock />
       </div>
       <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 4 ? '' : 'hidden'}`}>
         <SponsorTransferNativeToken />
-        <CodeBlock5 />
+        <SponsorTransferNativeTokenCodeBlock />
       </div>
       <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 5 ? '' : 'hidden'}`}>
         <SponsorTransferNonNativeToken />
-        <CodeBlock6 />
+        <SponsorTransferNonNativeTokenCodeBlock />
       </div>
       <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 6 ? '' : 'hidden'}`}>
         <SponsorTransferErc721 />
-        <CodeBlock7 />
+        <SponsorTransferErc721CodeBlock />
       </div>
       <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 7 ? '' : 'hidden'}`}>
         <SponsorTransferErc1155 />
-        <CodeBlock8 />
+        <SponsorTransferErc1155CodeBlock />
       </div>
       <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 8 ? '' : 'hidden'}`}>
         <GetNativeBalances />
-        <CodeBlock9 />
+        <GetNativeBalanceCodeBlock />
       </div>
       <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 9 ? '' : 'hidden'}`}>
         <GetAccountAddress />
-        <CodeBlock10 />
+        <GetAccountAddressCodeBlock />
       </div>
       <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 10 ? '' : 'hidden'}`}>
         <GetAccountBalances />
-        <CodeBlock11 />
+        <GetAccountBalancesCodeBlock />
       </div>
       <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 11 ? '' : 'hidden'}`}>
         <GetTransactionDetails />
-        <CodeBlock12 />
+        <GetTransactionDetailsCodeBlock />
       </div>
       <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 12 ? '' : 'hidden'}`}>
         <GetNftList />
-        <CodeBlock13 />
+        <GetNftListCodeBlock />
       </div>
       <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 13 ? '' : 'hidden'}`}>
         <GetSponsorBalance />
-        <CodeBlock14 />
+        <GetSponsorBalanceCodeBlock />
       </div>
       <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 14 ? '' : 'hidden'}`}>
         <DepositWhitelist />
-        <CodeBlock15 />
+        <DepositWhitelistCodeBlock />
       </div>
       <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 15 ? '' : 'hidden'}`}>
         <CheckWhitelisted />
-        <CodeBlock16 />
+        <CheckWhitelistCodeBlock />
       </div>
       <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 16 ? '' : 'hidden'}`}>
         <AddToWhitelist />
-        <CodeBlock17 />
+        <AddToWhitelistCodeBlock />
       </div>
 
     </div>

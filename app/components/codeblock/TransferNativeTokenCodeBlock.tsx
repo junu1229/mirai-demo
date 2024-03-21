@@ -2,14 +2,14 @@ import { useEffect } from 'react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css'; 
 
-const CodeBlock5 = () => {
+const transferNativeTokenCodeBlock = () => {
 
   useEffect(() => {
     hljs.highlightAll();
   }, []);
 
   return (
-    <pre className=' text-[0.7vw]'>
+    <pre className=' text-[0.8vw]'>
       <code className={`language-typescript`} >
         {`const transferNativeToken = async () => {
 
@@ -25,12 +25,7 @@ const CodeBlock5 = () => {
     await miraiInstance.addUserOpsToBatch({ to: address, value: utils.parseEther(amount) });
 
     // estimate transactions added to the batch and get the fee data for the UserOp
-    const op = await miraiInstance.estimate({
-      paymasterDetails: {
-        url: 'https://arka.etherspot.io?apiKey=YOUR_API_KEY&chainId=CHAIN_ID', 
-        context: { mode: 'sponsor' },
-      },
-    });
+    const op = await miraiInstance.estimate();
 
     // sign the UserOp and sending to the bundler...
     const uoHash = await miraiInstance.send(op);
@@ -53,4 +48,4 @@ const CodeBlock5 = () => {
   );
 };
 
-export default CodeBlock5;
+export default transferNativeTokenCodeBlock;

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css'; 
 
-const CodeBlock17 = () => {
+const GetTransactionDetailsCodeBlock = () => {
 
   useEffect(() => {
     hljs.highlightAll();
@@ -11,15 +11,15 @@ const CodeBlock17 = () => {
   return (
     <pre className=' text-[0.8vw]'>
       <code className={`language-typescript`} >
-        {`const addToWhitelist = async () => {
-  
-  const address = '0x...'; // user's address
+        {`const getTransactionDetails = async () => {
+
+  const transactionHash = '0x123...'; // transaction hash
   const chainId = 1; // chain id of the network
-  
+
   try {
-    const balance = await paymaster.adddWhitelist(address, chainId);
+    const transactionDetails = await dataService.getTransaction(transactionHash, chainId, '');
   } catch (error) {
-    console.error('Error adding to whitelist:', error);
+    console.log('Error getting transaction Details: ', error);
   }
 }`}
       </code>
@@ -27,4 +27,4 @@ const CodeBlock17 = () => {
   );
 };
 
-export default CodeBlock17;
+export default GetTransactionDetailsCodeBlock;

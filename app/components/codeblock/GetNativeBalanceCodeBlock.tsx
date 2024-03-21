@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css'; 
 
-const CodeBlock9 = () => {
+const GetNativeBalanceCodeBlock = () => {
 
   useEffect(() => {
     hljs.highlightAll();
@@ -23,4 +23,4 @@ const CodeBlock9 = () => {
   );
 };
 
-export default CodeBlock9;
+export default GetNativeBalanceCodeBlock;

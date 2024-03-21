@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css'; 
 
-const CodeBlock10 = () => {
+const GetNftListCodeBlock = () => {
 
   useEffect(() => {
     hljs.highlightAll();
@@ -11,11 +11,15 @@ const CodeBlock10 = () => {
   return (
     <pre className=' text-[0.8vw]'>
       <code className={`language-typescript`} >
-        {`const getAccountAddress = async () => {
+        {`const getNftList = async () => {
+
+  const address = '0x...'; // user's address
+  const chainId = 1; // chain id of the network
+  
   try {
-    const address = await miraiInstance.getCounterFactualAddress();
+    const nftList = await dataService.getNftsList(address, chainId, '');
   } catch (error) {
-    console.log('Error getting address:', error);
+    console.error('Error getting nft list:', error);
   }
 }`}
       </code>
@@ -23,4 +27,4 @@ const CodeBlock10 = () => {
   );
 };
 
-export default CodeBlock10;
+export default GetNftListCodeBlock;

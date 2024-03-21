@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css'; 
 
-const CodeBlock14 = () => {
+const GetSponsorBalanceCodeBlock = () => {
 
   useEffect(() => {
     hljs.highlightAll();
@@ -27,4 +27,4 @@ const CodeBlock14 = () => {
   );
 };
 
-export default CodeBlock14;
+export default GetSponsorBalanceCodeBlock;
