@@ -1,19 +1,19 @@
 import { useLoginStore } from "@/app/store/store";
 import { useState } from "react";
-import { Paymaster } from "@kanalabs/mirai";
+import { NetworkNames, Paymaster } from "@kanalabs/mirai";
 
 const GetSponsorBalance = () => {
 
   const [sponsorBalance, setSponsorBalance] = useState('');
+  const { network, chainId } = useLoginStore();
   const [loading, setLoading] = useState(false);
   const paymaster = new Paymaster();
-  const chainId = 137;
-  const sponsorAddress = '0x8ffDf51EbF23761D762f028A6e1cb88db25A85Bf';
+  const paymasterAddress = network === NetworkNames.Bifrost ? '0x8ffdf51ebf23761d762f028a6e1cb88db25a85bf' : '0x7305B1a9bDD8247DeB288BC2d271626159cB8c4c';
 
   const getSponsorBalance = async () => {
     try {
       setLoading(true);
-      const balance = await paymaster.getSponsorBalance(sponsorAddress, chainId);
+      const balance = await paymaster.getSponsorBalance(paymasterAddress, chainId as number);
       console.log(balance.sponsorBalance);
       setSponsorBalance(balance.sponsorBalance);
       setLoading(false);

@@ -1,17 +1,19 @@
 import { useLoginStore } from "@/app/store/store";
 import { useState } from "react";
-import { Paymaster } from "@kanalabs/mirai";
+import { NetworkNames, Paymaster } from "@kanalabs/mirai";
 
 const CheckWhitelisted = () => {
 
-  const { address } = useLoginStore();
+  const { address, chainId, network } = useLoginStore();
   const [loading, setLoading] = useState(false);
   const paymaster = new Paymaster();
+
+  const paymasterAddress = network === NetworkNames.Bifrost ? '0x8ffdf51ebf23761d762f028a6e1cb88db25a85bf' : '0x7305B1a9bDD8247DeB288BC2d271626159cB8c4c';
 
   const checkWhitelisted = async () => {
     try {
       setLoading(true);
-      const balance = await paymaster.checkWhitelist(address, 137, '0x7305B1a9bDD8247DeB288BC2d271626159cB8c4c');
+      const balance = await paymaster.checkWhitelist(address, chainId as number, paymasterAddress);
       console.log(balance);
       setLoading(false);
     } catch (error) {

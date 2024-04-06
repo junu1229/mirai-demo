@@ -7,12 +7,10 @@ const SponsorTransferNativeToken = () => {
   const [address, setAddress] = useState('');
   const [amount, setAmount] = useState('');
   const [loading, setLoading] = useState(false);
-  const { miraiInstance } = useLoginStore();
-  const url = `${process.env.NEXT_PUBLIC_PAYMASTER_URL}?apiKey=${process.env.NEXT_PUBLIC_PAYMASTER_API_KEY}`;
+  const { miraiInstance, chainId } = useLoginStore();
 
   const transfer = async () => {
     try {
-      console.log("url: ", url);
       setLoading(true);
       if (miraiInstance === null) {
         setLoading(false);
@@ -31,7 +29,7 @@ const SponsorTransferNativeToken = () => {
       // estimate transactions added to the batch and get the fee data for the UserOp
       const op = await miraiInstance.estimate({
         paymasterDetails: {
-          url: `${process.env.NEXT_PUBLIC_PAYMASTER_URL}?apiKey=${process.env.NEXT_PUBLIC_PAYMASTER_API_KEY}&chainId=137`,
+          url: `${process.env.NEXT_PUBLIC_PAYMASTER_URL}?apiKey=${process.env.NEXT_PUBLIC_PAYMASTER_API_KEY}&chainId=${chainId as number}`,
           context: { mode: 'sponsor' },
         },
       });

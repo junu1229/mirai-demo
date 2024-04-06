@@ -5,14 +5,13 @@ import { DataService } from "@kanalabs/mirai";
 const GetNftList = () => {
 
   const [loading, setLoading] = useState(false);
-  const { address } = useLoginStore.getState();
+  const { address, chainId } = useLoginStore.getState();
   const dataService = new DataService();
-  const chainId = 137;
 
   const getNftList = async () => {
     try {
       setLoading(true);
-      const nftList = await dataService.getNftsList(address, chainId, '');
+      const nftList = await dataService.getNftsList(address, chainId as number, '');
       console.log(nftList);
       setLoading(false);
     } catch (error) {

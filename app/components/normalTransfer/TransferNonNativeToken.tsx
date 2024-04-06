@@ -10,7 +10,7 @@ const TransferNonNativeToken = () => {
   const [amount, setAmount] = useState('');
   const [tokenId, setTokenId] = useState('');
   const [loading, setLoading] = useState(false);
-  const { miraiInstance, miraiSDK } = useLoginStore();
+  const { miraiInstance, miraiSDK, network } = useLoginStore();
 
   const transfer = async () => {
     try {
@@ -18,7 +18,7 @@ const TransferNonNativeToken = () => {
         return;
       }
       setLoading(true);
-      const erc20 = miraiSDK.erc20(tokenId, NetworkNames.Polygon);
+      const erc20 = miraiSDK.erc20(tokenId, network);
 
       // clear any previous transactions in batch
       await miraiInstance.clearUserOpsFromBatch();

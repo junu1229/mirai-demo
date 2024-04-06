@@ -10,7 +10,7 @@ const SponsorTransferNonNativeToken = () => {
   const [amount, setAmount] = useState('');
   const [tokenId, setTokenId] = useState('');
   const [loading, setLoading] = useState(false);
-  const { miraiInstance, miraiSDK } = useLoginStore();
+  const { miraiInstance, miraiSDK, network, chainId } = useLoginStore();
 
   const transfer = async () => {
     try {
@@ -18,7 +18,7 @@ const SponsorTransferNonNativeToken = () => {
         return;
       }
       setLoading(true);
-      const erc20 = miraiSDK.erc20(tokenId, NetworkNames.Polygon);
+      const erc20 = miraiSDK.erc20(tokenId, network);
 
       // clear any previous transactions in batch
       await miraiInstance.clearUserOpsFromBatch();
@@ -31,7 +31,7 @@ const SponsorTransferNonNativeToken = () => {
       // estimate transactions added to the batch and get the fee data for the UserOp
       const op = await miraiInstance.estimate({
         paymasterDetails: {
-          url: `${process.env.NEXT_PUBLIC_PAYMASTER_URL}?apiKey=${process.env.NEXT_PUBLIC_PAYMASTER_API_KEY}&chainId=137`,
+          url: `${process.env.NEXT_PUBLIC_PAYMASTER_URL}?apiKey=${process.env.NEXT_PUBLIC_PAYMASTER_API_KEY}&chainId=${chainId as number}`,
           context: { mode: 'sponsor' },
         },
       });

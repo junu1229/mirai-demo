@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { Paymaster } from "@kanalabs/mirai";
+import { useLoginStore } from "@/app/store/store";
 
 const DepositWhitelist = () => {
 
   const [amount, setAmount] = useState('');
   const [loading, setLoading] = useState(false);
   const paymaster = new Paymaster();
-  const chainId = 56;
+  const { chainId } = useLoginStore();
 
   const depositWhitelist = async () => {
     try {
       setLoading(true);
-      const balance = await paymaster.deposit(amount, chainId);
+      const balance = await paymaster.deposit(amount, chainId as number);
       console.log(balance);
       setLoading(false);
     } catch (error) {

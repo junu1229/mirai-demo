@@ -10,7 +10,7 @@ const SponsorTransferErc1155 = () => {
   const [contractAddress, setContractAddress] = useState('');
   const [tokenId, setTokenId] = useState(0);
   const [loading, setLoading] = useState(false);
-  const { miraiInstance, miraiSDK, address } = useLoginStore();
+  const { miraiInstance, miraiSDK, address, network, chainId } = useLoginStore();
 
   const transfer = async () => {
     try {
@@ -20,7 +20,7 @@ const SponsorTransferErc1155 = () => {
       setLoading(true);
 
       //initialize erc721 sdk instance
-      const erc1155 = miraiSDK.erc1155(contractAddress, NetworkNames.Polygon);
+      const erc1155 = miraiSDK.erc1155(contractAddress, network);
   
       // clear any previous transactions in batch
       await miraiInstance.clearUserOpsFromBatch();
@@ -33,7 +33,7 @@ const SponsorTransferErc1155 = () => {
       // estimate transactions added to the batch and get the fee data for the UserOp
       const op = await miraiInstance.estimate({
         paymasterDetails: {
-          url: `${process.env.NEXT_PUBLIC_PAYMASTER_URL}?apiKey=${process.env.NEXT_PUBLIC_PAYMASTER_API_KEY}&chainId=137`,
+          url: `${process.env.NEXT_PUBLIC_PAYMASTER_URL}?apiKey=${process.env.NEXT_PUBLIC_PAYMASTER_API_KEY}&chainId=${chainId as number}`,
           context: { mode: 'sponsor' },
         },
       });

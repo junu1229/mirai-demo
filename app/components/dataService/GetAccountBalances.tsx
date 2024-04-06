@@ -11,15 +11,14 @@ const GetAccountBalances = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const { address } = useLoginStore.getState();
+  const { address, chainId } = useLoginStore.getState();
 
   const dataService = new DataService();
-  const chainId = 137;
 
   const getAccountBalances = async () => {
     try {
       setLoading(true);
-      const balances = await dataService.getAccountBalances(address, chainId, '');
+      const balances = await dataService.getAccountBalances(address, chainId as number, '');
       console.log(balances.data);
       setLoading(false);
     } catch (error) {

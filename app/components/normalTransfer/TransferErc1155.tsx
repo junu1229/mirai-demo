@@ -10,7 +10,7 @@ const TransferErc1155 = () => {
   const [contractAddress, setContractAddress] = useState('');
   const [tokenId, setTokenId] = useState(0);
   const [loading, setLoading] = useState(false);
-  const { miraiInstance, miraiSDK, address } = useLoginStore();
+  const { miraiInstance, miraiSDK, address, network } = useLoginStore();
 
   const transfer = async () => {
     try {
@@ -20,7 +20,7 @@ const TransferErc1155 = () => {
       setLoading(true);
 
       //initialize erc721 sdk instance
-      const erc1155 = miraiSDK.erc1155(contractAddress, NetworkNames.Polygon);
+      const erc1155 = miraiSDK.erc1155(contractAddress, network);
   
       // clear any previous transactions in batch
       await miraiInstance.clearUserOpsFromBatch();

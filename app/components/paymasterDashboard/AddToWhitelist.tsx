@@ -4,14 +4,14 @@ import { Paymaster } from "@kanalabs/mirai";
 
 const AddToWhiteList = () => {
 
-  const { address } = useLoginStore();
+  const { address, chainId } = useLoginStore();
   const [loading, setLoading] = useState(false);
   const paymaster = new Paymaster();
 
   const addToWhiteList = async () => {
     try {
       setLoading(true);
-      const balance = await paymaster.adddWhitelist(address, 137);
+      const balance = await paymaster.adddWhitelist(address, chainId as number);
       console.log(balance);
       setLoading(false);
     } catch (error) {

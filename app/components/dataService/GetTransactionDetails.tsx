@@ -5,16 +5,16 @@ import { DataService } from "@kanalabs/mirai";
 const GetTransactionDetails = () => {
 
   const [transactionHash, setTransactionHash] = useState('');
+  const { chainId } = useLoginStore.getState();
 
   const [loading, setLoading] = useState(false);
 
   const dataService = new DataService();
-  const chainId = 137;
 
   const getTransactionDetails = async () => {
     try {
       setLoading(true);
-      const transactionDetails = await dataService.getTransaction(transactionHash, chainId, '');
+      const transactionDetails = await dataService.getTransaction(transactionHash, chainId as number, '');
       console.log(transactionDetails);
       setLoading(false);
     } catch (error) {

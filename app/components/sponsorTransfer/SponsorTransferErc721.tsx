@@ -1,4 +1,3 @@
-import { utils } from 'ethers';
 import { useState } from "react";
 import { useLoginStore } from "../../store/store";
 import { sleep } from '@etherspot/prime-sdk/dist/sdk/common';
@@ -9,7 +8,7 @@ const SponsorTransferErc721 = () => {
   const [contractAddress, setContractAddress] = useState('');
   const [tokenId, setTokenId] = useState(0);
   const [loading, setLoading] = useState(false);
-  const { miraiInstance, miraiSDK } = useLoginStore();
+  const { miraiInstance, miraiSDK, network, chainId } = useLoginStore();
 
   const transfer = async () => {
     try {
@@ -20,7 +19,7 @@ const SponsorTransferErc721 = () => {
       const sender = await miraiInstance.getCounterFactualAddress();
 
       //initialize erc721 sdk instance
-      const erc721 = miraiSDK.erc721(contractAddress, NetworkNames.Polygon);
+      const erc721 = miraiSDK.erc721(contractAddress, network);
   
       // clear any previous transactions in batch
       await miraiInstance.clearUserOpsFromBatch();
@@ -33,7 +32,7 @@ const SponsorTransferErc721 = () => {
       // estimate transactions added to the batch and get the fee data for the UserOp
       const op = await miraiInstance.estimate({
         paymasterDetails: {
-          url: `${process.env.NEXT_PUBLIC_PAYMASTER_URL}?apiKey=${process.env.NEXT_PUBLIC_PAYMASTER_API_KEY}&chainId=137`,
+          url: `${process.env.NEXT_PUBLIC_PAYMASTER_URL}?apiKey=${process.env.NEXT_PUBLIC_PAYMASTER_API_KEY}&chainId=${chainId as number}`,
           context: { mode: 'sponsor' },
         },
       });
