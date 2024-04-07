@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css'; 
 
-const transferNativeTokenCodeBlock = () => {
+const TransferNativeTokenCodeBlock = () => {
 
   useEffect(() => {
     hljs.highlightAll();
@@ -48,4 +48,4 @@ const transferNativeTokenCodeBlock = () => {
   );
 };
 
-export default transferNativeTokenCodeBlock;
+export default TransferNativeTokenCodeBlock;
