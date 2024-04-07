@@ -3,7 +3,7 @@
 ## Index
 
 ### [1. Settings](#settings)
-### [2. Mirai SDK Structure](#2-mirai-sdk-structure)
+### [2. Mirai SDK Structure](#mirai-sdk-structure)
 - [initializeSdkGateway](#1-initializesdkgateway)
 - [SDK](#2-sdk)
 - [DataService](#3-dataservice)
