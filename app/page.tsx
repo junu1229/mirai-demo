@@ -11,7 +11,6 @@ function App() {
   const { isLoggedIn } = useLoginStore();
   return (
     <div className="App">
-      <Swap />
      {isLoggedIn ? <LoggedIn /> : <UnLoggedIn />}
     </div>
   );

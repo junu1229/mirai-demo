@@ -16,7 +16,7 @@ const GetNftList = () => {
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      console.error('Error getting native balance:', error);
+      console.error('Error getting nft list:', error);
     }
   }
 

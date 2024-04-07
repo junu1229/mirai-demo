@@ -12,12 +12,12 @@ const DepositWhitelist = () => {
   const depositWhitelist = async () => {
     try {
       setLoading(true);
-      const balance = await paymaster.deposit(amount, chainId as number);
-      console.log(balance);
+      const result = await paymaster.deposit(amount, chainId as number);
+      console.log(result);
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      console.error('Error getting native balance:', error);
+      console.error('Deposit error:', error);
     }
   }
 

@@ -13,12 +13,12 @@ const CheckWhitelisted = () => {
   const checkWhitelisted = async () => {
     try {
       setLoading(true);
-      const balance = await paymaster.checkWhitelist(address, chainId as number, paymasterAddress);
-      console.log(balance);
+      const result = await paymaster.checkWhitelist(address, chainId as number, paymasterAddress);
+      console.log(result);
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      console.error('Error getting native balance:', error);
+      console.error('Error checking whitelisted:', error);
     }
   }
 

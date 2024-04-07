@@ -38,8 +38,9 @@ const TransferNativeToken = () => {
       let userOpsReceipt = null;
       const timeout = Date.now() + 60000 // 1 minute timeout
       while (userOpsReceipt == null && Date.now() < timeout) {
-          await sleep(2);
-          userOpsReceipt = await miraiInstance.getUserOpReceipt(uoHash);
+        await sleep(2);
+        // get the receipt of the UserOp
+        userOpsReceipt = await miraiInstance.getUserOpReceipt(uoHash);
       }
       console.log('\x1b[33m%s\x1b[0m', `Transaction Receipt: `, userOpsReceipt);
       setLoading(false);

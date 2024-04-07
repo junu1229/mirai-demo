@@ -19,14 +19,14 @@ const TransferErc1155 = () => {
       }
       setLoading(true);
 
-      //initialize erc721 sdk instance
+      //initialize erc1155 sdk instance
       const erc1155 = miraiSDK.erc1155(contractAddress, network);
   
       // clear any previous transactions in batch
       await miraiInstance.clearUserOpsFromBatch();
       console.log("cleared");
   
-      // add erc721 transferFrom function to the batch
+      // add 1155 transferFrom function to the batch
       await erc1155.safeTransferFrom(address, targetAddress, tokenId, amount, '0x');
       console.log("added");
   
@@ -48,7 +48,7 @@ const TransferErc1155 = () => {
       console.log('\x1b[33m%s\x1b[0m', `Transaction Receipt: `, userOpsReceipt);
       setLoading(false);
     } catch (error) {
-      console.error('Error transferring native token:', error);
+      console.error('Error transferring ERC-1155:', error);
       setLoading(false);
     }
   };

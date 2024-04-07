@@ -7,6 +7,7 @@ const GetAccountAddress = () => {
   const [loading, setLoading] = useState(false);
 
   const { miraiInstance } = useLoginStore.getState();
+  
   const getAccountAddress = async () => {
     try {
       setLoading(true);
@@ -18,7 +19,7 @@ const GetAccountAddress = () => {
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      console.error('Error getting native balance:', error);
+      console.error('Error getting Address:', error);
     }
   }
 

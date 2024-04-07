@@ -33,7 +33,7 @@ const SponsorTransferErc1155 = () => {
       // estimate transactions added to the batch and get the fee data for the UserOp
       const op = await miraiInstance.estimate({
         paymasterDetails: {
-          url: `${process.env.NEXT_PUBLIC_PAYMASTER_URL}?apiKey=${process.env.NEXT_PUBLIC_PAYMASTER_API_KEY}&chainId=${chainId as number}`,
+          url: `https://arka.etherspot.io?apiKey=${process.env.NEXT_PUBLIC_PAYMASTER_API_KEY}&chainId=${chainId as number}`,
           context: { mode: 'sponsor' },
         },
       });

@@ -34,6 +34,8 @@ import GetSponsorBalanceCodeBlock from "../components/codeblock/GetSponsorBalanc
 import DepositWhitelistCodeBlock from "../components/codeblock/DepositWhitelistCodeBlock";
 import CheckWhitelistCodeBlock from "../components/codeblock/CheckWhitelistCodeBlock";
 import AddToWhitelistCodeBlock from "../components/codeblock/AddToWhitelistCodeBlock";
+import Swap from "../components/uniswap/Swap";
+import UniSwapCodeBlock from "../components/codeblock/UniSwapCodeBlock";
 
 const LoggedIn = () => {
 
@@ -116,6 +118,14 @@ const LoggedIn = () => {
                 add to whitelist
               </div>
             </div>
+            <div className="text-[1.5vw] mt-[2vh]">
+              using Contract
+            </div>
+            <div className=" w-full mt-2 border-[1px] border-[rgba(255,255,255,0.10)] rounded-2xl p-4 mb-[2vh]">
+              <div className={`flex justify-center text-[1.2vw] h-[6vh] rounded-xl items-center cursor-pointer hover:text-[rgba(255,255,255,0.50)] ${functionNumber === 17 ? 'bg-[#1D1E20] text-[rgba(255,255,255,0.50)]' : 'bg-[#1d1e2083] text-[rgba(255,255,255,0.3)]'}`} onClick={() => setFunctionNumber(17)}>
+                Uniswap
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -186,6 +196,10 @@ const LoggedIn = () => {
       <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 16 ? '' : 'hidden'}`}>
         <AddToWhitelist />
         <AddToWhitelistCodeBlock />
+      </div>
+      <div className={`mt-[10vh] flex items-center w-full justify-between px-[5%] ${functionNumber === 17 ? '' : 'hidden'}`}>
+        <Swap />
+        <UniSwapCodeBlock />
       </div>
 
     </div>

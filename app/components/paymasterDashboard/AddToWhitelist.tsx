@@ -11,8 +11,8 @@ const AddToWhiteList = () => {
   const addToWhiteList = async () => {
     try {
       setLoading(true);
-      const balance = await paymaster.adddWhitelist(address, chainId as number);
-      console.log(balance);
+      const result = await paymaster.adddWhitelist(address, chainId as number);
+      console.log(result);
       setLoading(false);
     } catch (error) {
       setLoading(false);

@@ -2,7 +2,6 @@ import { utils } from 'ethers';
 import { useState } from "react";
 import { useLoginStore } from "../../store/store";
 import { sleep } from '@etherspot/prime-sdk/dist/sdk/common';
-import { NetworkNames } from '@kanalabs/mirai/lib/prime/network';
 
 const TransferNonNativeToken = () => {
   const [address, setAddress] = useState('');
@@ -18,6 +17,7 @@ const TransferNonNativeToken = () => {
         return;
       }
       setLoading(true);
+      // get the erc20 instance
       const erc20 = miraiSDK.erc20(tokenId, network);
 
       // clear any previous transactions in batch
@@ -46,7 +46,7 @@ const TransferNonNativeToken = () => {
       console.log('\x1b[33m%s\x1b[0m', `Transaction Receipt: `, userOpsReceipt);
       setLoading(false);
     } catch (error) {
-      console.error('Error transferring native token:', error);
+      console.error('Error transferring Non-Native token:', error);
       setLoading(false);
     }
   };

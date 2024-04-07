@@ -23,7 +23,7 @@ const GetAccountBalances = () => {
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      console.error('Error getting native balance:', error);
+      console.error('Error getting account balances:', error);
     }
   }
 
